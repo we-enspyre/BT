@@ -21,7 +21,7 @@ const Navigation = () => {
   };
 
   const handleBookingRedirect = () => {
-    window.open("https://finecut.planway.com/", "_blank");
+    window.location.href = "https://finecut.planway.com/";
   };
 
   return (
@@ -36,10 +36,10 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div
-            className="text-2xl font-serif font-bold text-foreground cursor-pointer hover:text-primary transition-colors"
-            onClick={() => scrollToSection("hero")}
+          className="text-2xl font-serif font-bold text-[#FFD700] cursor-pointer transition-colors"
+          onClick={() => scrollToSection("hero")}
           >
-            FineCut
+          FineCut
           </div>
 
           {/* Navigation Links */}

@@ -1,59 +1,55 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Star, MapPin, Clock, Phone } from "lucide-react";
-
 const About = () => {
+  const basePath = import.meta.env.BASE_URL;
+
   const team = [
     {
       name: "Marcus Jensen",
-      title: "Master Barber & Ejer",
-      description: "15 års erfaring med klassisk barbering og moderne styling",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face",
+      title: "Senior Barber",
+      image: `${basePath}images/marcus.jpg`, // henter fra public/images/
     },
     {
       name: "Oliver Nielsen",
-      title: "Senior Stylist",
-      description: "Specialist i skin fades og moderne herreklip",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+      title: "Senior Barber",
+      image: `${basePath}images/oliver.jpg`, // henter fra public/images/
     },
   ];
 
   return (
-    <section id="about" className="py-20 bg-background">
+    <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-6">
+        {/* Overskrift */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
             Om os
           </h2>
-          
-          {/* Team */}
-          <h3 className="text-2xl font-serif font-bold text-foreground mb-8">
-            Mød vores to barbers
-          </h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mb-16">
-            {team.map((member, index) => (
-              <Card key={index} className="hover-lift">
-                <CardContent className="p-6 text-center">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-20 h-20 rounded-full object-cover border-2 border-primary/20 mx-auto mb-4"
-                  />
-                  <h4 className="text-lg font-semibold text-card-foreground mb-2">
-                    {member.name}
-                  </h4>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <p className="text-lg text-gray-500">Mød vores dedikerede barbers</p>
+        </div>
 
-          {/* Salon Info */}
-          <div className="max-w-3xl mx-auto">
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              Hos Finecut kombinerer vi klassisk håndværk med moderne stil. 
-              Vi skaber en oplevelse, hvor præcision møder personlighed.
-            </p>      
-          </div>
+        {/* Team grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+          {team.map((member, index) => (
+            <div key={index} className="group">
+              <div className="relative overflow-hidden rounded-lg">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-[400px] object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                {/* Label med navn */}
+                <div className="absolute bottom-0 left-0 right-0 bg-black/40 text-white px-4 py-3">
+                  <h4 className="text-lg font-semibold">{member.name}</h4>
+                  <p className="text-sm text-gray-200">{member.title}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Tekst under */}
+        <div className="max-w-2xl mx-auto mt-12 text-center">
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Hos FineCut kombinerer vi klassisk håndværk med moderne stil. Vi skaber en oplevelse, hvor præcision møder personlighed.
+          </p>
         </div>
       </div>
     </section>

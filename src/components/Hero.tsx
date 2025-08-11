@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-barber.jpg";
 
 const Hero = () => {
   const handleBookingRedirect = () => {
-    window.open("https://finecut.planway.com/", "_blank");
+    window.location.href = "https://finecut.planway.com/";
   };
 
   return (

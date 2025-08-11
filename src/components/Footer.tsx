@@ -1,6 +1,10 @@
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 
 const Footer = () => {
+  // Robust base path til Vite – virker både i dev og når sitet ligger i en undermappe
+  const base = (import.meta?.env?.BASE_URL ?? "/").replace(/\/+$/, "") + "/";
+  const enspyreLogo = base + "images/enspyre-logo.png"; // læg filen i public/images/enspyre-logo.png
+
   return (
     <footer className="bg-secondary text-secondary-foreground py-12">
       <div className="container mx-auto px-6">
@@ -24,6 +28,8 @@ const Footer = () => {
               </a>
               <a
                 href="https://www.facebook.com/people/FineCut/100090299740181/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
               >
                 <Facebook className="w-5 h-5" />
@@ -73,24 +79,43 @@ const Footer = () => {
                 <span>Søndag:</span>
                 <span>Lukket</span>
               </div>
-              <div className="mt-4 p-3 bg-primary/10 rounded text-xs">
-                <strong>Bemærk:</strong> Vi anbefaler at booke tid på forhånd for at sikre den bedste service.
-              </div>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-primary/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-secondary-foreground/60">
-          <div>
-            © 2024 Finecut Barbershop. Alle rettigheder forbeholdes.
-          </div>
-          <div className="mt-4 md:mt-0">
-            <a href="#" className="hover:text-primary transition-colors">
-              Privatlivspolitik
-            </a>
-          </div>
-        </div>
+<div className="border-t border-primary/20 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-secondary-foreground/60 relative">
+  {/* Venstre side */}
+  <div className="md:static absolute left-0">
+    © 2024 Finecut Barbershop. Alle rettigheder forbeholdes.
+  </div>
+
+  {/* Midten */}
+  <div className="absolute left-1/2 transform -translate-x-1/2">
+    <a
+      href="https://www.enspyre.dk"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+    >
+      <img
+        src={enspyreLogo}
+        alt="Enspyre"
+        className="h-5"
+        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
+      />
+      <span className="text-secondary-foreground/60">Lavet af Enspyre</span>
+    </a>
+  </div>
+
+  {/* Højre side */}
+  <div className="md:static absolute right-0 mt-4 md:mt-0">
+    <a href="#" className="hover:text-primary transition-colors">
+      Privatlivspolitik
+    </a>
+  </div>
+</div>
+
       </div>
     </footer>
   );
