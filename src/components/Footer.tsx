@@ -1,10 +1,6 @@
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 
 const Footer = () => {
-  // Robust base path til Vite – virker både i dev og når sitet ligger i en undermappe
-  const base = (import.meta?.env?.BASE_URL ?? "/").replace(/\/+$/, "") + "/";
-  const enspyreLogo = base + "images/enspyre-logo.png"; // læg filen i public/images/enspyre-logo.png
-
   return (
     <footer className="bg-secondary text-secondary-foreground py-12">
       <div className="container mx-auto px-6">
@@ -84,38 +80,57 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-<div className="border-t border-primary/20 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-secondary-foreground/60 relative">
-  {/* Venstre side */}
-  <div className="md:static absolute left-0">
-    © 2024 Finecut Barbershop. Alle rettigheder forbeholdes.
-  </div>
+        <div className="border-t border-primary/20 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-secondary-foreground/60 relative">
+          {/* Venstre */}
+          <div className="md:static absolute left-0">
+            © 2024 Finecut Barbershop. Alle rettigheder forbeholdes.
+          </div>
 
-  {/* Midten */}
-  <div className="absolute left-1/2 transform -translate-x-1/2">
-    <a
-      href="https://www.enspyre.dk"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-    >
-      <img
-        src={enspyreLogo}
-        alt="Enspyre"
-        className="h-5"
-        onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = "none"; }}
-      />
-      <span className="text-secondary-foreground/60">Lavet af Enspyre</span>
-    </a>
-  </div>
+          {/* Midten: Privatlivspolitik */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 mt-8 md:mt-0">
+            <a href="/privatlivspolitik" className="hover:text-primary transition-colors">
+              Privatlivspolitik
+            </a>
+          </div>
 
-  {/* Højre side */}
-  <div className="md:static absolute right-0 mt-4 md:mt-0">
-    <a href="#" className="hover:text-primary transition-colors">
-      Privatlivspolitik
-    </a>
-  </div>
-</div>
-
+          {/* Højre: ENSPYRE med inline logo */}
+          <div className="md:static absolute right-0 mt-16 md:mt-0">
+            <a
+              href="https://www.enspyre.dk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 321 321"
+                className="h-6 w-6"
+                aria-hidden="true"
+                focusable="false"
+              >
+                <circle cx="161" cy="160" r="160" fill="white" />
+                <path
+                  d="M51 279V136.614L145.99 41H262.524V88.6592L99.0851 88.6592V183.682L193.19 134.838L262.524 134.838V183.682L99.0851 183.682V277.625L145.99 230.453L262.524 230.453L270 279H51Z"
+                  fill="url(#paint0_linear_92_24)"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_92_24"
+                    x1="152.167"
+                    y1="-314.56"
+                    x2="197.394"
+                    y2="902.092"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stopColor="#0F0F0F" />
+                    <stop offset="1" stopColor="#C5BCE0" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <span className="tracking-wide font-semibold">ENSPYRE</span>
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

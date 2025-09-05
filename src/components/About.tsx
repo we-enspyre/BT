@@ -3,12 +3,12 @@ const About = () => {
 
   const team = [
     {
-      name: "Marcus Jensen",
+      name: "Juan Garcia",
       title: "Senior Barber",
       image: `${basePath}images/marcus.jpg`, // henter fra public/images/
     },
     {
-      name: "Oliver Nielsen",
+      name: "Oliveria Ortega",
       title: "Senior Barber",
       image: `${basePath}images/oliver.jpg`, // henter fra public/images/
     },
@@ -22,7 +22,6 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">
             Om os
           </h2>
-          <p className="text-lg text-gray-500">Mød vores dedikerede barbers</p>
         </div>
 
         {/* Team grid */}
