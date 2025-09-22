@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import enspyreLogo from "../assets/enspyre-logo.svg";
 
 const Footer = () => {
   return (
@@ -101,32 +102,13 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 321 321"
-                className="h-6 w-6"
+                <img
+                src={enspyreLogo}
+                alt="Enspyre logo"
+                className="h-12 w-12"
                 aria-hidden="true"
-                focusable="false"
-              >
-                <circle cx="161" cy="160" r="160" fill="white" />
-                <path
-                  d="M51 279V136.614L145.99 41H262.524V88.6592L99.0851 88.6592V183.682L193.19 134.838L262.524 134.838V183.682L99.0851 183.682V277.625L145.99 230.453L262.524 230.453L270 279H51Z"
-                  fill="url(#paint0_linear_92_24)"
+                draggable={false}
                 />
-                <defs>
-                  <linearGradient
-                    id="paint0_linear_92_24"
-                    x1="152.167"
-                    y1="-314.56"
-                    x2="197.394"
-                    y2="902.092"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stopColor="#0F0F0F" />
-                    <stop offset="1" stopColor="#C5BCE0" />
-                  </linearGradient>
-                </defs>
-              </svg>
               <span className="tracking-wide font-semibold">ENSPYRE</span>
             </a>
           </div>
