@@ -83,19 +83,12 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-primary/20 mt-8 pt-8 flex flex-col md:flex-row items-center justify-between text-sm text-secondary-foreground/60 relative">
           {/* Venstre */}
-          <div className="md:static absolute left-0">
+          <div>
             © 2024 Finecut Barbershop. Alle rettigheder forbeholdes.
           </div>
 
-          {/* Midten: Privatlivspolitik */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 mt-8 md:mt-0">
-            <a href="/privatlivspolitik" className="hover:text-primary transition-colors">
-              Privatlivspolitik
-            </a>
-          </div>
-
           {/* Højre: ENSPYRE med inline logo */}
-          <div className="md:static absolute right-0 mt-16 md:mt-0">
+          <div className="mt-6 md:mt-0 flex-shrink-0">
             <a
               href="https://www.enspyre.dk"
               target="_blank"
@@ -112,7 +105,7 @@ const Footer = () => {
               <span className="tracking-wide font-semibold">ENSPYRE</span>
             </a>
           </div>
-        </div>
+      </div>
       </div>
     </footer>
   );
